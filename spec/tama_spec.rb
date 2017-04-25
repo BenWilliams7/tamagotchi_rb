@@ -17,10 +17,16 @@ describe(Tama) do
       expect(my_pet.is_alive()).to(eq(true))
     end
     it("is dead if the food level is 0") do
-      my_pet.set_food_level() #make a method that will change the food level of your tamagotchi.
       my_pet = Tama.new("lil dragon")
-
+      my_pet.set_food_level() #make a method that will change the food level of your tamagotchi.
       expect(my_pet.is_alive()).to(eq(false))
+    end
+  end
+  describe("#time_passes") do
+    it("decreases the amount of food the Tamagotchi has left by 1") do
+      my_pet = Tama.new("lil dragon")
+      my_pet.time_passes()  #decide what trigger you will use to make time pass
+      expect(my_pet.food()).to(eq(9))
     end
   end
 end

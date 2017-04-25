@@ -1,9 +1,13 @@
 class Tama
+  @@storedFood = 10
   define_method(:initialize)  do |name|
     @name = name
     @food = 10
-    @sleep = 10
+    @sleep = 20
     @activity = 10
+  end
+  define_singleton_method(:hungerLevel) do
+    @@storedFood
   end
   define_method(:name) do
     @name
@@ -22,5 +26,11 @@ class Tama
   end
   define_method(:set_food_level) do
     @food = 0
+  end
+  define_method(:time_passes) do
+    @@storedFood -= 1
+  end
+  define_method(:add_food) do
+    @@storedFood += 3
   end
 end
