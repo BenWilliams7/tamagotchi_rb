@@ -17,4 +17,10 @@ class Tama
   define_method(:activity) do
     @activity
   end
+  define_method(:is_alive) do
+    @food > 0
+  end
+  define_method(:set_food_level) do
+    @food = 0
+  end
 end
