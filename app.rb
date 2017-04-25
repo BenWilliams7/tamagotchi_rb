@@ -12,8 +12,13 @@ post("/timepass") do
   lilbud = Tama.new("Lil Yotti")
   lilbud.time_passes()
   @@foodScore = Tama.hungerLevel
+  @@levelScore = Tama.level./12
   # redirect '/'
-  erb(:index)
+  if (Tama.hungerLevel < 1)
+    erb(:success)
+  else
+    erb(:index)
+  end
 end
 
 post("/feedme") do

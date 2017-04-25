@@ -1,5 +1,6 @@
 class Tama
   @@storedFood = 10
+  @@level = 0
   define_method(:initialize)  do |name|
     @name = name
     @food = 10
@@ -27,8 +28,12 @@ class Tama
   define_method(:set_food_level) do
     @food = 0
   end
+  define_singleton_method(:level) do
+    @@level
+  end
   define_method(:time_passes) do
     @@storedFood -= 1
+    @@level += 1
   end
   define_method(:add_food) do
     @@storedFood += 3
