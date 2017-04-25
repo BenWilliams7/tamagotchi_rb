@@ -15,6 +15,7 @@ post("/timepass") do
   @@levelScore = Tama.level./12
   # redirect '/'
   if (Tama.hungerLevel < 1)
+    Tama.clear
     erb(:success)
   else
     erb(:index)
